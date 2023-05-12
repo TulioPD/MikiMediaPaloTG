@@ -10,11 +10,10 @@ public class CardDatabase : MonoBehaviour
     {
         Debug.Log("Card Database init");
 
-        //Añade aquí la información de tu carta personalizada. El formato es el siguiente
-        //siguiente nº, Nombre, Coste, Poder, Defensa, Descripción, tipo, 
-        //nombre de archivo en carpeta Borders, nombre archivo en carpeta cardArt, 
-        //combre de archivo en carpeta, nombre de archivo en carpeta Mana
-
+        //Aquí deberás añadir la información de la carta, como se especifica en la documentación.
+        //Simplemente copia y pega la siguiente linea sin el "//" inicial y cambia los valores entre cada coma (Si hay comillas dobles, escribe el valor dentro de estas comillas)
+        //No te olvides también de cambiar el valor del Id de la carta al siguiente valor numérico en la lista.
+        //Cards.Add(new Card(id, "cardName", cost, power, toughness, "cardDescription", "cardType", "borderId", "artId", "manaId"));
         Cards.Add(new Card(0, "Gato serio", 1, 1, 1, "Es un gato muy serio. No hace absolutamente nada. Sólo estar serio", "Type 1 - Type 1", "b2","a1", "m1"));
         Cards.Add(new Card(1, "Homelo Chino", 2, 2, 4, "Es Homero, pero Chino. El resto de cartas obtiene +2 de poder este turno", "Type 1 - Type 1", "b1","a2", "m2"));
         Cards.Add(new Card(2, "Goku Calvo", 99, 99, 99, "Es un Goku calvo y super serio. Me hizo demasiada gracia, así que esta carta gana automáticamente la partida si pulsas las teclas Alta+F+P(TODO)", "Type 1 - Type 1", "b3","a3", "m3"));
@@ -23,6 +22,8 @@ public class CardDatabase : MonoBehaviour
         Debug.Log("Card Database loaded");
 
         DontDestroyOnLoad(gameObject);
+
+        //TODO{data serialization and access based on a single .txt/json file or based on .png card images containing the necesary information to both be saved and built from scratch}
     }
 }
 

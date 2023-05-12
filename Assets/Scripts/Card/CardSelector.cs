@@ -9,6 +9,10 @@ using UnityEngine.UI;
 public class CardSelector : MonoBehaviour
 {
     public int selectedCardIndex;
+    //La idea inicial de añadir una lista a parte en lugar de simplemente usar la de CardDatabase es porque
+    //tengo pensado cambiar como funciona el acceso y serializado de datos en un futuro
+    // podría ser buena idea tenerlo separado por si decido implementar colecciones o filtrados de algún tipo
+    // para poder crear barajas rápidas
     public List<Card> availableCards = new List<Card>();
 
     public Image borderImage;
@@ -104,35 +108,14 @@ public class CardSelector : MonoBehaviour
         {
             Card selectedCard = availableCards[selectedCardIndex];
 
-            // Set border image
-            if (borderImage != null)
-            {
-                borderImage.sprite = Resources.Load<Sprite>("Sprites/Borders/" + selectedCard.borderId);
-            }
-            // Set card art image
-            if (cardImage != null)
-            {
-                cardImage.sprite = Resources.Load<Sprite>("Sprites/CardArt/" + selectedCard.artId);
-            }
-            if (manaImage != null)
-            {
-                Debug.Log("Sprites/Mana/" + selectedCard.manaId);
-                manaImage.sprite = Resources.Load<Sprite>("Sprites/Mana/" + selectedCard.manaId);
-            }
-
-            // Set text values
-            nameText.SetText(selectedCard.cardName);
-            typeText.SetText(selectedCard.cardType);
-            toughnessText.SetText(selectedCard.toughness.ToString());
-            powerText.SetText(selectedCard.power.ToString());
-            descriptionText.SetText(selectedCard.cardDescription);
-            costText.SetText(selectedCard.cost.ToString());
+            CardEditor.BuildCardUI(selectedCard, borderImage, cardImage, manaImage, nameText, typeText, powerText, toughnessText, descriptionText, costText);
         }
         else
         {
             Debug.LogError($"Selected card index {selectedCardIndex} is out of range.");
         }
     }
+
 
 
     private void DebugCurrentAvailableCards()
