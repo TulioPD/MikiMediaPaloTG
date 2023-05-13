@@ -36,5 +36,17 @@ public class Card : MonoBehaviour
         this.toughness = toughness;
     }
 
-
+    //show card information 
+    public void ShowCardInfo()
+    {
+        Debug.Log("Card Name: " + cardName);
+        Debug.Log("Card Cost: " + cost);
+        Debug.Log("Card Power: " + power);
+        Debug.Log("Card Toughness: " + toughness);
+        Debug.Log("Card Description: " + cardDescription);
+        Debug.Log("Card Type: " + cardType);
+        Debug.Log("Card Border: " + borderId);
+        Debug.Log("Card Art: " + artId);
+        Debug.Log("Card Mana: " + manaId);
+    }   
 }

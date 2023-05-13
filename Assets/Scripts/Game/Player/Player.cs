@@ -3,6 +3,12 @@ using System.Collections.Generic;
 
 using UnityEngine;
 
+public enum PlayerType
+{
+    player1,
+    player2
+}
+
 [UnityEngine.Scripting.Preserve]
 public class Player :MonoBehaviour
 {
@@ -10,8 +16,7 @@ public class Player :MonoBehaviour
     public int Health { get; set; }
     public int Mana { get; set; }
     public PlayerHand Hand { get; set; }
-
-
+    public PlayerType PlayerType { get; internal set; }
 
     public Player(string name, int health, int mana, List<Card> availableCards)
     {
