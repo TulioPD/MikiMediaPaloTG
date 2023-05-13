@@ -31,7 +31,7 @@ public class Player :MonoBehaviour
         Debug.Log("Player " + Name + " cards:");
         foreach (Card card in Hand.GetCards())
         {
-            Debug.Log(card.cardName);
+            Debug.Log(card.CardName);
         }
     }
 

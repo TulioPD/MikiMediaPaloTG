@@ -120,7 +120,7 @@ public class CardSelector : MonoBehaviour
 
     private void DebugCurrentAvailableCards()
     {
-        string cardNames = string.Join(", ", availableCards.Select(card => card.cardName).ToArray());
+        string cardNames = string.Join(", ", availableCards.Select(card => card.CardName).ToArray());
         Debug.Log($"Current available cards: {cardNames}");
     }
 }

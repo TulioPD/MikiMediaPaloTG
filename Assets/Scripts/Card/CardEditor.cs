@@ -11,28 +11,28 @@ public class CardEditor : MonoBehaviour
         // Set border image
         if (borderImage != null)
         {
-            borderImage.sprite = Resources.Load<Sprite>("Sprites/Borders/" + card.borderId);
+            borderImage.sprite = Resources.Load<Sprite>("Sprites/Borders/" + card.BorderId);
         }
 
         // Set card art image
         if (cardImage != null)
         {
-            cardImage.sprite = Resources.Load<Sprite>("Sprites/CardArt/" + card.artId);
+            cardImage.sprite = Resources.Load<Sprite>("Sprites/CardArt/" + card.ArtId);
         }
 
         // Set mana image
         if (manaImage != null)
         {
-            manaImage.sprite = Resources.Load<Sprite>("Sprites/Mana/" + card.manaId);
+            manaImage.sprite = Resources.Load<Sprite>("Sprites/Mana/" + card.ManaId);
         }
 
         // Set text values
-        nameText.SetText(card.cardName);
-        typeText.SetText(card.cardType);
-        toughnessText.SetText(card.toughness.ToString());
-        powerText.SetText(card.power.ToString());
-        descriptionText.SetText(card.cardDescription);
-        costText.SetText(card.cost.ToString());
+        nameText.SetText(card.CardName);
+        typeText.SetText(card.CardType.ToString());
+        toughnessText.SetText(card.Toughness.ToString());
+        powerText.SetText(card.Power.ToString());
+        descriptionText.SetText(card.CardDescription);
+        costText.SetText(card.Cost.ToString());
     }
 }
 

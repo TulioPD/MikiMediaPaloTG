@@ -14,17 +14,17 @@ public class CardDatabase : MonoBehaviour
         //Simplemente copia y pega la siguiente linea sin el "//" inicial y cambia los valores entre cada coma (Si hay comillas dobles, escribe el valor dentro de estas comillas)
         //No te olvides también de cambiar el valor del Id de la carta al siguiente valor numérico en la lista.
         //Cards.Add(new Card(id, "cardName", cost, power, toughness, "cardDescription", "cardType", "borderId", "artId", "manaId"));
-        Cards.Add(new Card(0, "Gato serio", 1, 1, 1, "Es un gato muy serio. No hace absolutamente nada. Sólo estar serio", "Type 1 - Type 1", "b2","a1", "m1"));
-        Cards.Add(new Card(1, "Homelo Chino", 2, 1, 4, "Es Homero, pero Chino. El resto de cartas obtiene +2 de poder este turno", "Type 1 - Type 1", "b1","a2", "m2"));
-        Cards.Add(new Card(2, "Goku Calvo", 2, 2, 3, "Es un Goku calvo y super serio. Me hizo demasiada gracia, así que esta carta gana automáticamente la partida si pulsas las teclas Alta+F+P(TODO)", "Type 1 - Type 1", "b3","a3", "m3"));
-        Cards.Add(new Card(3, "El gato Capelotas", 5, 4, 10, "Gato hijo de la grandísima puta. Hace que todas las cartas enemigas pierdan la habilidad de bloquear durante este turno", "Type 1 - Type 1", "b4","a4", "m4"));
-        Cards.Add(new Card(4, "Shrigga", 6, 9, 4, "Shrigga", "Shrigga - Shrigga", "b5","a5", "m5"));
-        Cards.Add(new Card(5, "Mierdón", 3, 10, 1, "este es Mierdon, tiene inmunodeficiencia y leishmania, y debido a que fue abusado durante los primeros 10 años de su vida y a su demencia, no puede acercarse a niños ni a abuelos y necesita comer 7 veces al día", "Criatura - Legendaria", "b2", "Mierdon", "m1"));
-        Cards.Add(new Card(6, "El nano Regu", 3, 4, 2, "cardDescription", "cardType", "b1", "NanoRegu", "m1"));
-        Cards.Add(new Card(7, "Técnica de la garrapata bípeda", 2, 0, 0, "Atrapa a una criatura objetivo durante un turno", "Instantanea", "b5", "GarrapataBipeda", "m4"));
-        Cards.Add(new Card(8, "JT", 5, 2, 8, "Tiene la habilidad de girar una carta objetivo, de la misma manera que JT gira el cuello", "Criatura", "b1", "JT", "m4"));
-        Cards.Add(new Card(9, "Proteinaca", 1, 1, 1, "cardDescription", "cardType", "b3", "Proteinaca", "m4"));
-        Cards.Add(new Card(10, "Probablemente la carta más chetada del juego", 9, 5, 10, "No sé que hará, pero espero que esté jodidamente rota de cojones", "Probablemente Dios", "b5", "npi", "m2"));
+        Cards.Add(new Card(0, "Gato serio", 1, 1, 1, "Es un gato muy serio. No hace absolutamente nada. Sólo estar serio", CardType.Land, "b2","a1", "m1"));
+        Cards.Add(new Card(1, "Homelo Chino", 2, 1, 4, "Es Homero, pero Chino. El resto de cartas obtiene +2 de poder este turno", CardType.Land, "b1","a2", "m2"));
+        Cards.Add(new Card(2, "Goku Calvo", 2, 2, 3, "Es un Goku calvo y super serio. Me hizo demasiada gracia, así que esta carta gana automáticamente la partida si pulsas las teclas Alta+F+P(TODO)", CardType.Land, "b3","a3", "m3"));
+        Cards.Add(new Card(3, "El gato Capelotas", 5, 4, 10, "Gato hijo de la grandísima puta. Hace que todas las cartas enemigas pierdan la habilidad de bloquear durante este turno", CardType.Land, "b4","a4", "m4"));
+        Cards.Add(new Card(4, "Shrigga", 6, 9, 4, "Shrigga", CardType.Land, "b5","a5", "m5"));
+        Cards.Add(new Card(5, "Mierdón", 3, 10, 1, "este es Mierdon, tiene inmunodeficiencia y leishmania, y debido a que fue abusado durante los primeros 10 años de su vida y a su demencia, no puede acercarse a niños ni a abuelos y necesita comer 7 veces al día", CardType.Land, "b2", "Mierdon", "m1"));
+        Cards.Add(new Card(6, "El nano Regu", 3, 4, 2, "cardDescription", CardType.Land, "b1", "NanoRegu", "m1"));
+        Cards.Add(new Card(7, "Técnica de la garrapata bípeda", 2, 0, 0, "Atrapa a una criatura objetivo durante un turno", CardType.Land, "b5", "GarrapataBipeda", "m4"));
+        Cards.Add(new Card(8, "JT", 5, 2, 8, "Tiene la habilidad de girar una carta objetivo, de la misma manera que JT gira el cuello", CardType.Land, "b1", "JT", "m4"));
+        Cards.Add(new Card(9, "Proteinaca", 1, 1, 1, "cardDescription", CardType.Land, "b3", "Proteinaca", "m4"));
+        Cards.Add(new Card(10, "Probablemente la carta más chetada del juego", 9, 5, 10, "No sé que hará, pero espero que esté jodidamente rota de cojones", CardType.Land, "b5", "npi", "m2"));
         Debug.Log("Card Database loaded");
 
         DontDestroyOnLoad(gameObject);
