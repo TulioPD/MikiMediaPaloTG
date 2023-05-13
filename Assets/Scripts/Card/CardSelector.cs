@@ -33,8 +33,8 @@ public class CardSelector : MonoBehaviour
         borderImage = gameObject.GetComponent<Image>(); 
 
         // Find the "Card Image" child object and get its Image component
-        Transform cardImageTransform = transform.Find("Card Image");
-        Transform manaImageTransform = transform.Find("Mana Image");
+        Transform cardImageTransform = transform.Find("Art");
+        Transform manaImageTransform = transform.Find("Mana");
         if (cardImageTransform != null)
         {
             cardImage = cardImageTransform.GetComponent<Image>();

@@ -31,7 +31,6 @@ public class Card : MonoBehaviour
         this.cardType = cardType;
         this.borderId = borderId;
         this.artId = artId;
-        this.artId = artId;
         this.manaId = manaId;
         this.toughness = toughness;
     }
