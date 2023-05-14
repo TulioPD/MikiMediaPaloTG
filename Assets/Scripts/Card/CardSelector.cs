@@ -55,9 +55,6 @@ public class CardSelector : MonoBehaviour
             Debug.LogError("Could not find child object named \"Mana Image\"");
         }
 
-        //canvasScreenShot = gameObject.AddComponent<CanvasScreenShot>();
-        //canvasScreenShot.OnPictureTaken += OnPictureTaken;
-
         UpdateCardUI();
     }
 
@@ -67,23 +64,10 @@ public class CardSelector : MonoBehaviour
         ChangeCard();
         if (Input.GetKeyDown(KeyCode.F))
         {
-            //CanvasScreenShot screenShot = gameObject.GetComponentInParent<CanvasScreenShot>();
-            //screenShot.takeScreenShot(gameObject.GetComponentInParent<Canvas>(), SCREENSHOT_TYPE.IMAGE_AND_TEXT, true);
-            ////debug trying to take screenshot from cardSelector
-            ////screenShot.takeScreenShot(gameObject.GetComponentInParent<Canvas>(), SCREENSHOT_TYPE.IMAGE_ONLY, false);
-            ////screenShot.takeScreenShot(gameObject.GetComponentInParent<Canvas>(), SCREENSHOT_TYPE.TEXT_ONLY, false);
-            ///
-            //Subscribe
             CanvasScreenShot.OnPictureTaken += receivePNGScreenShot;
             CanvasScreenShot screenShot = GameObject.Find("Canvas").GetComponent<CanvasScreenShot>();
 
-            //take ScreenShot(Image and Text)
-            //screenShot.takeScreenShot(canvasToSreenShot, SCREENSHOT_TYPE.IMAGE_AND_TEXT, false);
-            //take ScreenShot(Image only)
             screenShot.takeScreenShot(canvasToSreenShot, SCREENSHOT_TYPE.IMAGE_ONLY, false);
-            //take ScreenShot(Text only)
-            // screenShot.takeScreenShot(canvasToSreenShot, SCREENSHOT_TYPE.TEXT_ONLY, false);
-
         }
 
     }
@@ -99,9 +83,6 @@ public class CardSelector : MonoBehaviour
     }
 
     void ChangeCard()
-    // Check for user input to change the selected card
-    // For example, if the user presses a key to cycle through available cards
-    // selectedCardIndex = (selectedCardIndex + 1) % availableCards.Count;
     {
         if (Input.GetKeyDown(KeyCode.LeftArrow)) // Change selected card to the left
         {
@@ -128,11 +109,12 @@ public class CardSelector : MonoBehaviour
     private List<Card> LoadAvailableCards()
     {
         List<Card> availableCards = new List<Card>();
-        int cardsToLoad = Mathf.Min(10, CardDatabase.Cards.Count);
+        //int cardsToLoad = Mathf.Min(10, CardDatabase.Cards.Count);
 
-        for (int i = 0; i < cardsToLoad; i++)
+        for (int i = 0; i < CardDatabase.Cards.Count; i++)
         {
             availableCards.Add(CardDatabase.Cards[i]);
+            availableCards[i].ShowCardInfo();
         }
         Debug.Log($"Expected {availableCards} availableCards");
         return availableCards;
