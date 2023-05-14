@@ -25,12 +25,15 @@ public class CardSelector : MonoBehaviour
     public TextMeshProUGUI toughnessText;
     public TextMeshProUGUI descriptionText;
     public TextMeshProUGUI costText;
+    public Card Card;
+    public Canvas canvasToSreenShot;
+
 
     private void Start()
     {
         availableCards = LoadAvailableCards();
         Debug.Log($"Returned {availableCards.Count} cards");
-        borderImage = gameObject.GetComponent<Image>(); 
+        borderImage = gameObject.GetComponent<Image>();
 
         // Find the "Card Image" child object and get its Image component
         Transform cardImageTransform = transform.Find("Card Image");
@@ -43,7 +46,7 @@ public class CardSelector : MonoBehaviour
         {
             Debug.LogError("Could not find child object named \"Card Image\"");
         }
-        if (manaImageTransform!=null)
+        if (manaImageTransform != null)
         {
             manaImage = manaImageTransform.GetComponent<Image>();
         }
@@ -52,20 +55,34 @@ public class CardSelector : MonoBehaviour
             Debug.LogError("Could not find child object named \"Mana Image\"");
         }
 
-
         UpdateCardUI();
     }
+
 
     private void Update()
     {
         ChangeCard();
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            CanvasScreenShot.OnPictureTaken += receivePNGScreenShot;
+            CanvasScreenShot screenShot = GameObject.Find("Canvas").GetComponent<CanvasScreenShot>();
+
+            screenShot.takeScreenShot(canvasToSreenShot, SCREENSHOT_TYPE.IMAGE_ONLY, false);
+        }
 
     }
 
+    void receivePNGScreenShot(byte[] pngArray)
+    {
+        Debug.Log("Picture taken");
+
+        //Do Something With the Image (Save)
+        string path = Application.persistentDataPath + "CardUIFrame_C" + selectedCardIndex.ToString() + ".png";
+        System.IO.File.WriteAllBytes(path, pngArray);
+        Debug.Log(path);
+    }
+
     void ChangeCard()
-    // Check for user input to change the selected card
-    // For example, if the user presses a key to cycle through available cards
-    // selectedCardIndex = (selectedCardIndex + 1) % availableCards.Count;
     {
         if (Input.GetKeyDown(KeyCode.LeftArrow)) // Change selected card to the left
         {
@@ -73,6 +90,7 @@ public class CardSelector : MonoBehaviour
             if (selectedCardIndex < 0)
             {
                 selectedCardIndex = availableCards.Count - 1;
+                Card = availableCards[selectedCardIndex];
             }
             UpdateCardUI();
         }
@@ -82,6 +100,7 @@ public class CardSelector : MonoBehaviour
             if (selectedCardIndex >= availableCards.Count)
             {
                 selectedCardIndex = 0;
+                Card = availableCards[selectedCardIndex];
             }
             UpdateCardUI();
         }
@@ -90,11 +109,12 @@ public class CardSelector : MonoBehaviour
     private List<Card> LoadAvailableCards()
     {
         List<Card> availableCards = new List<Card>();
-        int cardsToLoad = Mathf.Min(10, CardDatabase.Cards.Count);
+        //int cardsToLoad = Mathf.Min(10, CardDatabase.Cards.Count);
 
-        for (int i = 0; i < cardsToLoad; i++)
+        for (int i = 0; i < CardDatabase.Cards.Count; i++)
         {
             availableCards.Add(CardDatabase.Cards[i]);
+            availableCards[i].ShowCardInfo();
         }
         Debug.Log($"Expected {availableCards} availableCards");
         return availableCards;

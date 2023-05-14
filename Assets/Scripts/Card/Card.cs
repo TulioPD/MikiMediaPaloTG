@@ -69,11 +69,11 @@ public class Card
 // Enum for card types
 public enum CardType
 {
-    Creature,
-    Spell,
-    Enchantment,
-    Artifact,
-    Land
+    Criatura,
+    Hechizo,
+    Encantamiento,
+    Artefacto,
+    Tierra
 }
 
 // Class to hold card data that can be changed during a match
