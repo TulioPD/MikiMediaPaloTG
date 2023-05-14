@@ -20,3 +20,9 @@ This project is a a personal project so feel free to use, modify, and distribute
 ## Contributing
 
 This project is currently not accepting contributions as it is a personal project. However, feel free to fork the project and make any changes you'd like.
+
+
+## Current features
+
+This project contains a Card Selector, a pretty simple Card Database to easilly access test Cards, a Card UI builder/Editor and a few other WIP features.
+I'm feeling pretty lazy to explain how the project is intended to work or be structured in the future, so read the code before doing any substantial changes and let's hope the universe helps you at understanding what am I even trying to do (don't blame me)
