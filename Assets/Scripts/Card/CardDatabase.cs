@@ -32,7 +32,3 @@ public class CardDatabase : MonoBehaviour
         //TODO{data serialization and access based on a single .txt/json file or based on .png card images containing the necesary information to both be saved and built from scratch}
     }
 }
-
-
-
-

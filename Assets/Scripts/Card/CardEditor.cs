@@ -35,4 +35,3 @@ public class CardEditor : MonoBehaviour
         costText.SetText(card.Cost.ToString());
     }
 }
-
