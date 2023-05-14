@@ -24,5 +24,4 @@ This project is currently not accepting contributions as it is a personal projec
 
 ## Current features
 
-This project contains a Card Selector, a pretty simple Card Database to easilly access test Cards, a Card UI builder/Editor and a few other WIP features.
-I'm feeling pretty lazy to explain how the project is intended to work or be structured in the future, so read the code before doing any substantial changes and let's hope the universe helps you at understanding what am I even trying to do (don't blame me)
+This project contains a Card Selector, a pretty simple Card Database to easilly access test Cards, a Card UI builder/Editor, a tool that lets you take a Screenshot of a Card displayed in the CardSelector class and a few other WIP features
