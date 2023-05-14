@@ -26,12 +26,14 @@ public class CardSelector : MonoBehaviour
     public TextMeshProUGUI descriptionText;
     public TextMeshProUGUI costText;
     public Card Card;
+    public Canvas canvasToSreenShot;
+
 
     private void Start()
     {
         availableCards = LoadAvailableCards();
         Debug.Log($"Returned {availableCards.Count} cards");
-        borderImage = gameObject.GetComponent<Image>(); 
+        borderImage = gameObject.GetComponent<Image>();
 
         // Find the "Card Image" child object and get its Image component
         Transform cardImageTransform = transform.Find("Card Image");
@@ -44,7 +46,7 @@ public class CardSelector : MonoBehaviour
         {
             Debug.LogError("Could not find child object named \"Card Image\"");
         }
-        if (manaImageTransform!=null)
+        if (manaImageTransform != null)
         {
             manaImage = manaImageTransform.GetComponent<Image>();
         }
@@ -53,14 +55,47 @@ public class CardSelector : MonoBehaviour
             Debug.LogError("Could not find child object named \"Mana Image\"");
         }
 
+        //canvasScreenShot = gameObject.AddComponent<CanvasScreenShot>();
+        //canvasScreenShot.OnPictureTaken += OnPictureTaken;
 
         UpdateCardUI();
     }
 
+
     private void Update()
     {
         ChangeCard();
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            //CanvasScreenShot screenShot = gameObject.GetComponentInParent<CanvasScreenShot>();
+            //screenShot.takeScreenShot(gameObject.GetComponentInParent<Canvas>(), SCREENSHOT_TYPE.IMAGE_AND_TEXT, true);
+            ////debug trying to take screenshot from cardSelector
+            ////screenShot.takeScreenShot(gameObject.GetComponentInParent<Canvas>(), SCREENSHOT_TYPE.IMAGE_ONLY, false);
+            ////screenShot.takeScreenShot(gameObject.GetComponentInParent<Canvas>(), SCREENSHOT_TYPE.TEXT_ONLY, false);
+            ///
+            //Subscribe
+            CanvasScreenShot.OnPictureTaken += receivePNGScreenShot;
+            CanvasScreenShot screenShot = GameObject.Find("Canvas").GetComponent<CanvasScreenShot>();
 
+            //take ScreenShot(Image and Text)
+            //screenShot.takeScreenShot(canvasToSreenShot, SCREENSHOT_TYPE.IMAGE_AND_TEXT, false);
+            //take ScreenShot(Image only)
+            screenShot.takeScreenShot(canvasToSreenShot, SCREENSHOT_TYPE.IMAGE_ONLY, false);
+            //take ScreenShot(Text only)
+            // screenShot.takeScreenShot(canvasToSreenShot, SCREENSHOT_TYPE.TEXT_ONLY, false);
+
+        }
+
+    }
+
+    void receivePNGScreenShot(byte[] pngArray)
+    {
+        Debug.Log("Picture taken");
+
+        //Do Something With the Image (Save)
+        string path = Application.persistentDataPath + "CardUIFrame_C" + selectedCardIndex.ToString() + ".png";
+        System.IO.File.WriteAllBytes(path, pngArray);
+        Debug.Log(path);
     }
 
     void ChangeCard()
