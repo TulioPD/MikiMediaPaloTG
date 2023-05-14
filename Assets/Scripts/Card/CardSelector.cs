@@ -77,7 +77,9 @@ public class CardSelector : MonoBehaviour
         Debug.Log("Picture taken");
 
         //Do Something With the Image (Save)
-        string path = Application.persistentDataPath + "CardUIFrame_C" + selectedCardIndex.ToString() + ".png";
+        //string path = Application.persistentDataPath + "CardUIFrame_C" + selectedCardIndex.ToString() + ".png";
+        string path = Application.dataPath + "/CardImage/CardUIFrame_C" + selectedCardIndex.ToString() + ".png";
+
         System.IO.File.WriteAllBytes(path, pngArray);
         Debug.Log(path);
     }
