@@ -25,6 +25,7 @@ public class CardSelector : MonoBehaviour
     public TextMeshProUGUI toughnessText;
     public TextMeshProUGUI descriptionText;
     public TextMeshProUGUI costText;
+    public Card Card;
 
     private void Start()
     {
@@ -73,6 +74,7 @@ public class CardSelector : MonoBehaviour
             if (selectedCardIndex < 0)
             {
                 selectedCardIndex = availableCards.Count - 1;
+                Card = availableCards[selectedCardIndex];
             }
             UpdateCardUI();
         }
@@ -82,6 +84,7 @@ public class CardSelector : MonoBehaviour
             if (selectedCardIndex >= availableCards.Count)
             {
                 selectedCardIndex = 0;
+                Card = availableCards[selectedCardIndex];
             }
             UpdateCardUI();
         }
