@@ -5,13 +5,6 @@ using UnityEngine.UI;
 
 public class CanvasScreenShot : MonoBehaviour
 {
-    /*
- CanvasScreenShot by programmer.
- http://stackoverflow.com/questions/36555521/unity3d-build-png-from-panel-of-a-unity-ui#36555521
- http://stackoverflow.com/users/3785314/programmer
- */
-
-    //Events
     public delegate void takePictureHandler(byte[] pngArray);
     public static event takePictureHandler OnPictureTaken;
 
