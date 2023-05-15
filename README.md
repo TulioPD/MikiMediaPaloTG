@@ -6,7 +6,6 @@ This is a WIP project of a Magic: The Gathering based card game developed as a b
 
 You are free to use, modify, and distribute this code for any purpose. However, please note that some of the assets included in this project may be subject to licensing restrictions. As such, it is your responsibility to ensure that you have the proper permissions and licenses for any assets used in your own projects based on this code.
 
-
 ## Getting Started
 
 ### Prerequisites
@@ -22,11 +21,19 @@ You are free to use, modify, and distribute this code for any purpose. However, 
 
 This project is currently not accepting contributions as it is a personal project. However, feel free to fork the project and make any changes you'd like.
 
-
 ## Current features
 
-This project contains a Card Selector, a pretty simple Card Database to easilly access test Cards, a Card UI builder/Editor, a tool that lets you take a Screenshot of a Card displayed in the CardSelector and convert it into a png file and a few other WIP features.
+- Card Selector: a simple UI that allows the user to browse and select cards from the Card Database.
+- Card Database: a class that stores test cards with basic information, such as name, type, and mana cost.
+- Card UI Builder/Editor: a tool that allows the user to customize the appearance of the cards, including the background, art, and text.
+- Card Screenshot Tool: a tool that takes a screenshot of a card displayed in the Card Selector and converts it into a PNG file.
+- Deck Manager: a WIP feature that will allow the player to create and customize their own decks using the cards available in the Card Database.
 
-Assets/CardImage contains updated examples of a png generated using the canvas elements that represents a Card. It selects border, mana image and art image from a folder based on the card information. You can change the fonts and sprites used to anything you like without any major issues other than changing a few sizes
+## Future features
 
-CardDataBase is just a temporal class fortesting purposses. You should change how the card information is stored in the future
+- Deck manager (WIP)
+- Basic game mechanics and card-player/card-card interactions
+- Cards special effects and interactions
+- Animations and Effects
+- Single player basic AI mode
+- Multiplayer support
