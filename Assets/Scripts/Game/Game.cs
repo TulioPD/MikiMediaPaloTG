@@ -1,38 +1,23 @@
 using System.Collections.Generic;
-using System.Diagnostics;
-
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class Game
 {
-    public Player[] Players;
+    public Player player1;
+    public Player player2;
 
-    public Game()
+    public Gameboard gameboard;
+
+    public Game(Player player1, Player player2)
     {
-        // Initialize players
-        Players = new Player[2];
-        Players[0] = new Player("Player 1",20,10,CardDatabase.Cards);
-        Players[1] = new Player("Player 2", 20, 10, CardDatabase.Cards);
-        
-        // Draw 5 random cards for each player from the CardDatabase
-        List<Card> availableCards = new List<Card>(CardDatabase.Cards);
-        for (int i = 0; i < Players.Length; i++)
-        {
-            for (int j = 0; j < 5; j++)
-            {
-                Card drawnCard = Players[i].Hand.DrawRandomCard(availableCards);
-                Players[i].Hand.AddCard(drawnCard);
-            }
-            ShowInformation(Players[i]);
-            
-        }
-
-
+        this.player1 = player1;
+        this.player2 = player2;
+        // Set player types
+        player1.PlayerType = PlayerType.player1;
+        player2.PlayerType = PlayerType.player2;
     }
 
-    public void ShowInformation(Player player)
+    public void StartGame()
     {
-        player.ShowPlayerInfo();
-        player.DebugPlayerCards();
+        //TODO: Implement game logic
     }
 }

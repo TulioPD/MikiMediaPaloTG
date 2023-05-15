@@ -1,34 +1,51 @@
-using System.Collections;
-using System.Collections.Generic;
-
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
+    
+    public enum Mode { GAME, MENU };
 
-    public Game game;
+    public Mode currentMode;
 
-    private void Awake()
+    // references to other game systems, e.g. game board, card database, networking
+    //private Gameboard gameBoard;
+    //private CardDatabase cardDatabase;
+    //private NetworkManager networkManager;
+    //private UIManager uiManager;
+
+    // game objects for 2 players
+    //private Player player;
+    //private Player player2;
+
+    // UI prefabs for the main menu and in-game UI
+    //public GameObject mainMenuPrefab;
+    //public GameObject inGameUIPrefab;
+
+    private void Start()
     {
-        if (Instance == null)
+        currentMode = Mode.GAME;
+        if (currentMode == Mode.GAME)
         {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
+            StartGameMode();
         }
-        else
+        else if (currentMode == Mode.MENU)
         {
-            Destroy(gameObject);
+            StartMenuMode();
         }
     }
 
-    void Start()
+    private void StartGameMode()
     {
-        game = new Game();
+        Game game= new Game(PlayerSettings.player, new Player(2));
+        //Debug player info and cards 
+        game.player1.ShowPlayerInfo();
+        game.player1.DebugPlayerCards();
+        game.player2.DebugPlayerCards();
+        game.player2.ShowPlayerInfo();
     }
 
-
-    void Update()
+    private void StartMenuMode()
     {
 
     }

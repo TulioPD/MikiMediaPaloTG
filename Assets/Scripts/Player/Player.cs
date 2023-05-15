@@ -9,27 +9,39 @@ public enum PlayerType
     player2
 }
 
-[UnityEngine.Scripting.Preserve]
-public class Player :MonoBehaviour
+//[UnityEngine.Scripting.Preserve]
+[System.Serializable]
+public class Player 
 {
     public string Name { get; set; }
     public int Health { get; set; }
     public int Mana { get; set; }
     public PlayerHand Hand { get; set; }
     public PlayerType PlayerType { get; internal set; }
-
-    public Player(string name, int health, int mana, List<Card> availableCards)
+    public Deck PlayerDeck { get; set; }
+    public Player(string name, int health, int mana, Deck deck)
     {
         Name = name;
         Health = health;
         Mana = mana;
         Hand = new PlayerHand();
+        PlayerDeck = deck;
+    }
+
+    //empty constructor for testing
+    public Player(int id)
+    {
+        //Name = "TestPlayer "+id;
+        //Health = 20;
+        //Mana = 1;
+        PlayerDeck = new Deck();
+        //Hand = new PlayerHand();
     }
 
     public void DebugPlayerCards()
     {
         Debug.Log("Player " + Name + " cards:");
-        foreach (Card card in Hand.GetCards())
+        foreach (Card card in this.PlayerDeck.Cards)
         {
             Debug.Log(card.CardName);
         }
@@ -40,10 +52,7 @@ public class Player :MonoBehaviour
         Debug.Log("Player " + Name + " information:");
         Debug.Log("Mana: " + Mana);
         Debug.Log("Health Points: " + Health);
-        Debug.Log("Cards in hand: " + Hand.GetCards().Count);
+        //Debug.Log("Cards in hand: " + Hand.GetCards().Count);
+        Debug.Log("Deck name: " + PlayerDeck.DeckName);
     }
-
-
 }
-
-
