@@ -28,3 +28,5 @@ This project is currently not accepting contributions as it is a personal projec
 This project contains a Card Selector, a pretty simple Card Database to easilly access test Cards, a Card UI builder/Editor, a tool that lets you take a Screenshot of a Card displayed in the CardSelector and convert it into a png file and a few other WIP features.
 
 Assets/CardImage contains updated examples of a png generated using the canvas elements that represents a Card. It selects border, mana image and art image from a folder based on the card information. You can change the fonts and sprites used to anything you like without any major issues other than changing a few sizes
+
+CardDataBase is just a temporal class fortesting purposses. You should change it how the card information is stored in the future
