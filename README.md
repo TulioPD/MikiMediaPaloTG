@@ -29,4 +29,4 @@ This project contains a Card Selector, a pretty simple Card Database to easilly 
 
 Assets/CardImage contains updated examples of a png generated using the canvas elements that represents a Card. It selects border, mana image and art image from a folder based on the card information. You can change the fonts and sprites used to anything you like without any major issues other than changing a few sizes
 
-CardDataBase is just a temporal class fortesting purposses. You should change it how the card information is stored in the future
+CardDataBase is just a temporal class fortesting purposses. You should change how the card information is stored in the future
