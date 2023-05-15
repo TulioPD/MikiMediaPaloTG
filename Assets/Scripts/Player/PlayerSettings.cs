@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerSettings : MonoBehaviour
+public static class PlayerSettings
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    //This class contains useful Player information that can be accesed from the GameManager and modified if gameMode=Mode.MENU It contains a Player, and a Deck
+    public static Player player;
 
-    // Update is called once per frame
-    void Update()
+    public static Deck selectedDeck;
+
+    //constructor
+    static PlayerSettings()
     {
-        
+        player = new Player(1);
+        selectedDeck = player.PlayerDeck;
     }
 }

@@ -40,7 +40,7 @@ public class PlayerHand
 
         int randomIndex = UnityEngine.Random.Range(0, availableCards.Count);
         Card drawnCard = availableCards[randomIndex];
-        //availableCards.RemoveAt(randomIndex);
+        availableCards.RemoveAt(randomIndex);
 
         return drawnCard;
     }

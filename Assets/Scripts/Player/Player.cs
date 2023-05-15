@@ -9,7 +9,8 @@ public enum PlayerType
     player2
 }
 
-[UnityEngine.Scripting.Preserve]
+//[UnityEngine.Scripting.Preserve]
+[System.Serializable]
 public class Player 
 {
     public string Name { get; set; }
@@ -30,11 +31,11 @@ public class Player
     //empty constructor for testing
     public Player(int id)
     {
-        Name = "TestPlayer "+id;
-        Health = 20;
-        Mana = 1;
+        //Name = "TestPlayer "+id;
+        //Health = 20;
+        //Mana = 1;
         PlayerDeck = new Deck();
-        Hand = new PlayerHand();
+        //Hand = new PlayerHand();
     }
 
     public void DebugPlayerCards()
@@ -51,7 +52,7 @@ public class Player
         Debug.Log("Player " + Name + " information:");
         Debug.Log("Mana: " + Mana);
         Debug.Log("Health Points: " + Health);
-        Debug.Log("Cards in hand: " + Hand.GetCards().Count);
+        //Debug.Log("Cards in hand: " + Hand.GetCards().Count);
         Debug.Log("Deck name: " + PlayerDeck.DeckName);
     }
 }
