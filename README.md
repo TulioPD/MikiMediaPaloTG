@@ -35,5 +35,6 @@ This project is currently not accepting contributions as it is a personal projec
 - Basic game mechanics and card-player/card-card interactions
 - Cards special effects and interactions
 - Animations and Effects
+- Improve Card creation, major refactor of CardDatabase, CardSelector and CardEditor
 - Single player basic AI mode
 - Multiplayer support
