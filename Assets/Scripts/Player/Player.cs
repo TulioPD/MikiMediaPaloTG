@@ -10,7 +10,7 @@ public enum PlayerType
 }
 
 [UnityEngine.Scripting.Preserve]
-public class Player : MonoBehaviour
+public class Player 
 {
     public string Name { get; set; }
     public int Health { get; set; }
@@ -32,9 +32,9 @@ public class Player : MonoBehaviour
     {
         Name = "TestPlayer "+id;
         Health = 20;
-        Mana = 0;
-        Hand = new PlayerHand();
+        Mana = 1;
         PlayerDeck = new Deck();
+        Hand = new PlayerHand();
     }
 
     public void DebugPlayerCards()

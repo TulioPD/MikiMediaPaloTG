@@ -37,10 +37,10 @@ public class GameManager : MonoBehaviour
     {
         player1 = new Player(1);
         player2 = new Player(2);
-        Game game= new Game(player1.PlayerDeck, player2.PlayerDeck);
+        Game game= new Game(player1, player2);
         //Debug player info and cards 
-        game.player1.DebugPlayerCards();
         game.player1.ShowPlayerInfo();
+        game.player1.DebugPlayerCards();
         game.player2.DebugPlayerCards();
         game.player2.ShowPlayerInfo();
 

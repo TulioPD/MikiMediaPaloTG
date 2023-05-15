@@ -5,11 +5,12 @@ public class Game
     public Player player1;
     public Player player2;
 
-    public Game(Deck player1Deck, Deck player2Deck)
-    {
-        player1 = new Player("Player 1", 20, 0, player1Deck);
-        player2 = new Player("Player 2", 20, 0, player2Deck);
+    public Gameboard gameboard;
 
+    public Game(Player player1, Player player2)
+    {
+        this.player1 = player1;
+        this.player2 = player2;
         // Set player types
         player1.PlayerType = PlayerType.player1;
         player2.PlayerType = PlayerType.player2;
