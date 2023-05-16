@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 
 using UnityEngine;
 
-public class Deck
+public class Deck 
 {
     public string DeckName { get; set; }
     public Player Owner { get; set; }

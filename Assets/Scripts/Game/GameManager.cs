@@ -3,50 +3,43 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-    
+    public static PlayerSettings Settings { get; private set; }
+    public Canvas UI{ get; private set; }
+
     public enum Mode { GAME, MENU };
 
-    public Mode currentMode;
-
-    // references to other game systems, e.g. game board, card database, networking
-    //private Gameboard gameBoard;
-    //private CardDatabase cardDatabase;
-    //private NetworkManager networkManager;
-    //private UIManager uiManager;
-
-    // game objects for 2 players
-    //private Player player;
-    //private Player player2;
-
-    // UI prefabs for the main menu and in-game UI
-    //public GameObject mainMenuPrefab;
-    //public GameObject inGameUIPrefab;
+    public static Mode currentMode;
 
     private void Start()
     {
-        currentMode = Mode.GAME;
+        Instance = this;
+        UI = GameObject.Find("UI").GetComponent<Canvas>();
+        Settings = new PlayerSettings();
+        currentMode = Mode.MENU;
+
         if (currentMode == Mode.GAME)
-        {
             StartGameMode();
-        }
         else if (currentMode == Mode.MENU)
-        {
             StartMenuMode();
-        }
     }
+
 
     private void StartGameMode()
     {
-        Game game= new Game(PlayerSettings.player, new Player(2));
-        //Debug player info and cards 
-        game.player1.ShowPlayerInfo();
-        game.player1.DebugPlayerCards();
-        game.player2.DebugPlayerCards();
-        game.player2.ShowPlayerInfo();
+        Game game= new Game(new Player(Settings.PlayerID), new Player(2));
+        //DebugRandom(game);
     }
 
     private void StartMenuMode()
     {
 
     }
+
+    //private void DebugRandom(Game game)
+    //{
+    //    game.player1.ShowPlayerInfo();
+    //    game.player1.DebugPlayerCards();
+    //    game.player2.DebugPlayerCards();
+    //    game.player2.ShowPlayerInfo();
+    //}
 }
