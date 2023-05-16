@@ -28,11 +28,12 @@ This project is currently not accepting contributions as it is a personal projec
 - Card UI Builder/Editor: a tool that allows the user to customize the appearance of the cards, including the background, art, and text.
 - Card Screenshot Tool: a tool that takes a screenshot of a card displayed in the Card Selector and converts it into a PNG file.
 - Deck Manager: a WIP feature that will allow the player to create and customize their own decks using the cards available in the Card Database.
+- Basic game mechanics and card-player/card-card interactions (WIP) Currently the Gamemanager initializes with gameMode=Mode.GAME, wich creates one game with 2 players. The first player receives the information from the PlayerSettings and a new test Player 2. All the necesary information  is created and displayed in console. The selected deck will be a set of random cards from CardDatabase for testing purposes until I refactor de Card and CardDatabase classes, much later on the game development stage
 
 ## Future features
 
 - Deck manager (WIP)
-- Basic game mechanics and card-player/card-card interactions
+- Basic game mechanics and card-player/card-card interactions (WIP)
 - Cards special effects and interactions
 - Animations and Effects
 - Improve Card creation, major refactor of CardDatabase, CardSelector and CardEditor
