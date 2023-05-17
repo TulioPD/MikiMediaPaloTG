@@ -3,6 +3,12 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
+/*
+ CanvasScreenShot by programmer.
+ http://stackoverflow.com/questions/36555521/unity3d-build-png-from-panel-of-a-unity-ui#36555521
+ http://stackoverflow.com/users/3785314/programmer
+ */
+
 public class CanvasScreenShot : MonoBehaviour
 {
     public delegate void takePictureHandler(byte[] pngArray);
