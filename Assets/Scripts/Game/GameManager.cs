@@ -2,15 +2,13 @@ using System.Linq;
 using System.Net.Sockets;
 
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     public static PlayerSettings Settings { get; private set; }
     public MenuConfig menuConfig;  // Reference to the MenuConfig asset
-
-    public Canvas UI { get; private set; }
-
     public enum Mode { GAME, MENU };
     public static Mode currentMode;
 
@@ -18,7 +16,6 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Game Manager Initialized correctly");
         Instance = this;
-        UI = GameObject.Find("UI").GetComponent<Canvas>();
         Settings = new PlayerSettings();
         currentMode = Mode.MENU; // Set the initial mode to MENU
 
@@ -48,12 +45,12 @@ public class GameManager : MonoBehaviour
 
         if (config != null)
         {
-            // Instantiate the submenu prefab and add it to the UI
+            // Instantiate the submenu prefab without specifying a parent
             GameObject submenuPrefab = config.submenuPrefab;
-            GameObject submenu = Instantiate(submenuPrefab, UI.transform);
+            GameObject submenu = Instantiate(submenuPrefab);
 
             // Add necessary component to the submenu object, if needed
-             submenu.AddComponent<MainMenu>();
+            submenu.AddComponent<MainMenu>();
 
             // Perform any other initialization or setup for the submenu
         }
@@ -62,4 +59,7 @@ public class GameManager : MonoBehaviour
             Debug.LogError("No configuration found for menu type: " + menuType);
         }
     }
+
+
+
 }
