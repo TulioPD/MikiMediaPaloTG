@@ -27,8 +27,13 @@ This project is currently not accepting contributions as it is a personal projec
 - Card Database: a class that stores test cards with basic information, such as name, type, and mana cost.
 - Card UI Builder/Editor: a tool that allows the user to customize the appearance of the cards, including the background, art, and text.
 - Card Screenshot Tool: a tool that takes a screenshot of a card displayed in the Card Selector and converts it into a PNG file.
-- Deck Manager (WIP): a feature that will allow the player to create and customize their own decks using the cards available in the Card Database.
-- Basic game mechanics and card-player/card-card interactions (WIP) Currently the Gamemanager initializes with gameMode=Mode.GAME, wich creates one game with 2 players. The first player receives the information from the PlayerSettings and a new test Player 2. All the necesary information  is created and displayed in console. The selected deck will be a set of random cards from CardDatabase for testing purposes until I refactor de Card and CardDatabase classes, much later on the game development stage.
+- PlayerSettings: Small script that allows to read and write a txt file that contain useful user information
+
+## Features in development
+
+- Deck Manager: a feature that will allow the player to create and customize their own decks using the cards available in the Card Database.
+- Basic game mechanics and card-player/card-card interactions
+- Card, CardDatabase, CardSelector and CardEditor being refactored to improve the data structure of the app to meke future developments easier (Card Screnshot tool may also need to be refactored)
 
 ## Future features
 
