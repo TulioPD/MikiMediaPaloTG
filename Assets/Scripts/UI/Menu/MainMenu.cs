@@ -22,27 +22,8 @@ public class MainMenu : Menu
 
     public void CreateMenu()
     {
-        //SetMainCanvasPrefab();
-        //UI = Instantiate(UI);
-
-        // Add the MainMenu component to the MainCanvas GameObject
-        //UI.gameObject.AddComponent<MainMenu>();
-
         Debug.Log("MainMenu Start");
         Debug.Log(MenuType);
-
-        // Find the ButtonPanel in a GameObject called "Button Panel"
-        buttonPanel = GameObject.Find("Button Panel").GetComponent<ButtonPanel>();
-
-        // Find all buttons in the button panel
-        buttonPanel.butonList = buttonPanel.GetComponentsInChildren<Button>();
-
-        // Debug the amount of buttons and their text
-        Debug.Log("Button count: " + buttonPanel.butonList.Length);
-        foreach (Button button in buttonPanel.butonList)
-        {
-            Debug.Log(button.GetComponentInChildren<TextMeshProUGUI>().text);
-        }
     }
 
     public override void Update()

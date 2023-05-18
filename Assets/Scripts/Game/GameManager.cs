@@ -59,7 +59,4 @@ public class GameManager : MonoBehaviour
             Debug.LogError("No configuration found for menu type: " + menuType);
         }
     }
-
-
-
 }
