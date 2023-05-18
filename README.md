@@ -43,4 +43,4 @@ This project is currently not accepting contributions as it is a personal projec
 - Animations and Effects
 - Improve Card creation, major refactor of CardDatabase, CardSelector and CardEditor
 - Single player basic AI mode
-- Multiplayer support (I'm planning on implementing Multiplayer with a Handler class in the GameManager that can be called under some circunstances. The Handler will take both users information in Playersettings to create a match. This may change in the future as I don't have any kind of experience in multiplayer and I may find better ways to implement this future feature)
+- Multiplayer support (I'm planning on implementing Multiplayer with a Handler class in the GameManager that can be called under some circunstances. The Handler will take both users information in Playersettings to create a match. This may change in the future as I have no idea about any networking on unity
