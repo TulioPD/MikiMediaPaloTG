@@ -1,52 +1,68 @@
+using System.Linq;
+using System.Net.Sockets;
+
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-    
-    public enum Mode { GAME, MENU };
+    public static PlayerSettings Settings { get; private set; }
+    public static Game Game { get; private set; }
+    public static TurnManager TurnManager { get; private set; }
 
-    public Mode currentMode;
-
-    // references to other game systems, e.g. game board, card database, networking
-    //private Gameboard gameBoard;
-    //private CardDatabase cardDatabase;
-    //private NetworkManager networkManager;
-    //private UIManager uiManager;
-
-    // game objects for 2 players
-    //private Player player;
-    //private Player player2;
-
-    // UI prefabs for the main menu and in-game UI
-    //public GameObject mainMenuPrefab;
-    //public GameObject inGameUIPrefab;
+    //public MenuConfig menuConfig;  // Reference to the MenuConfig asset
+    //public enum Mode { GAME, MENU };
+    //public static Mode currentMode;
 
     private void Start()
     {
-        currentMode = Mode.GAME;
-        if (currentMode == Mode.GAME)
-        {
-            StartGameMode();
-        }
-        else if (currentMode == Mode.MENU)
-        {
-            StartMenuMode();
-        }
+        Debug.Log("Game Manager Initialized correctly");
+        Instance = this;
+        Settings = new PlayerSettings();
+        Game game = new Game(new Player(Settings.PlayerID), new Player(2));
+        //currentMode = Mode.MENU; // Set the initial mode to MENU
+
+        // Start the menu mode
+        //StartMenuMode(MenuType.MainMenu);
     }
 
-    private void StartGameMode()
+    private void Update()
     {
-        Game game= new Game(PlayerSettings.player, new Player(2));
-        //Debug player info and cards 
-        game.player1.ShowPlayerInfo();
-        game.player1.DebugPlayerCards();
-        game.player2.DebugPlayerCards();
-        game.player2.ShowPlayerInfo();
+        
     }
 
-    private void StartMenuMode()
+    // Switch the selected mode
+    //public void SwitchCurrentMenu()
+    //{
+    //    currentMode = (currentMode == Mode.GAME) ? Mode.MENU : Mode.GAME;
+    //}
+
+    public void StartGameMode()
     {
-
+        Game game = new Game(new Player(Settings.PlayerID), new Player(2));
+        //DebugRandom(game);
     }
+
+    //public void StartMenuMode(MenuType desiredMenuType)
+    //{
+    //    // Find the appropriate submenu configuration based on the menu type
+    //    MenuConfig.SubtypeConfig config = menuConfig.subtypeConfigs.FirstOrDefault(subtype => subtype.menuType == desiredMenuType);
+
+    //    if (config != null)
+    //    {
+    //        // Instantiate the submenu prefab without specifying a parent
+    //        GameObject submenuPrefab = config.submenuPrefab;
+    //        GameObject submenu = Instantiate(submenuPrefab);
+
+    //        // Add necessary component to the submenu object, if needed
+    //        submenu.AddComponent<MainMenu>();
+
+    //        // Perform any other initialization or setup for the submenu
+    //    }
+    //    else
+    //    {
+    //        Debug.LogError("No configuration found for menu type: " + desiredMenuType);
+    //    }
+    //}
 }

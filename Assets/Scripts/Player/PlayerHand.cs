@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 using UnityEngine;
 
-public class PlayerHand
+public class PlayerHand : MonoBehaviour
 {
     protected List<Card> cards = new List<Card>();
 
