@@ -1,0 +1,6 @@
+0,Gato serio,1,1,1,Es un gato muy serio. No hace absolutamente nada. Sólo estar serio
+1,Homelo Chino,2,1,4,Es Homero, pero Chino. El resto de cartas obtiene +2 de poder este turno
+2,Goku Calvo,2,2,3,Es un Goku calvo y super serio. Me hizo demasiada gracia, así que esta carta gana automáticamente la partida si pulsas las teclas Alta+F+P(TODO)
+3,El gato Capelotas,5,4,10,Gato hijo de la grandísima puta. Hace que todas las cartas enemigas pierdan la habilidad de bloquear durante este turno
+4,Shrigga,6,9,4,Shrigga
+5,Mierdón,3,10,1,este es Mierdon, tiene inmunodeficiencia y leishmania, y debido a que fue abusado durante los primeros 10 años de su vida y a su demencia, no puede acercarse a niños ni a abuelos y necesita comer 7 veces al día

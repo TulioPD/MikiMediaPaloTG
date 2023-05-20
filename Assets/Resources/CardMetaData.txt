@@ -1,0 +1,6 @@
+0,Criatura,b2,a1,m1
+1,Criatura,b1,a2,m2
+2,Criatura,b3,a3,m3
+3,Criatura,b4,a4,m4
+4,Criatura,b5,a5,m5
+5,Criatura,b2,Mierdon,m1

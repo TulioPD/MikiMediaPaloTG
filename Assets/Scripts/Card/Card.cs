@@ -1,9 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-
 using UnityEngine;
-using UnityEngine.Animations;
-using UnityEngine.UI;
 
 [System.Serializable]
 public class Card
@@ -20,21 +15,19 @@ public class Card
     public string ArtId { get; private set; }
     public string ManaId { get; private set; }
 
+
     // Constructor
     public Card(CardData cardData, CardMetadata cardMetadata)
     {
-        Id = cardData.Id;
-        CardName = cardData.CardName;
-        Cost = cardData.Cost;
-        Power = cardData.Power;
-        Toughness = cardData.Toughness;
-        CardDescription = cardData.CardDescription;
+        // ...
 
-        CardType = cardMetadata.CardType;
-        BorderId = cardMetadata.BorderId;
-        ArtId = cardMetadata.ArtId;
-        ManaId = cardMetadata.ManaId;
+        CardType = cardMetadata?.CardType ?? CardType.Unknown;
+        BorderId = cardMetadata?.BorderId ?? string.Empty;
+        ArtId = cardMetadata?.ArtId ?? string.Empty;
+        ManaId = cardMetadata?.ManaId ?? string.Empty;
     }
+
+
 
     //Class constructor
     public Card(int id, string cardName, int cost, int power, int toughness, string cardDescription, CardType cardType, string borderId, string artId, string manaId)
@@ -51,24 +44,35 @@ public class Card
         ManaId = manaId;
     }
 
+    public void UpdateCardMetadata(CardMetadata cardMetadata)
+    {
+        CardType = cardMetadata.CardType;
+        BorderId = cardMetadata.BorderId;
+        ArtId = cardMetadata.ArtId;
+        ManaId = cardMetadata.ManaId;
+    }
+
+
     // Show card information 
     public void ShowCardInfo()
     {
-        Debug.Log("Card Name: " + CardName);
-        Debug.Log("Card Cost: " + Cost);
-        Debug.Log("Card Power: " + Power);
-        Debug.Log("Card Toughness: " + Toughness);
-        Debug.Log("Card Description: " + CardDescription);
-        Debug.Log("Card Type: " + CardType);
-        Debug.Log("Card Border: " + BorderId);
-        Debug.Log("Card Art: " + ArtId);
-        Debug.Log("Card Mana: " + ManaId);
+        Debug.Log($"Card Name: {CardName}");
+        Debug.Log($"Card Cost: {Cost}");
+        Debug.Log($"Card Power: {Power}");
+        Debug.Log($"Card Toughness: {Toughness}");
+        Debug.Log($"Card Description: {CardDescription}");
+        Debug.Log($"Card Type: {CardType}");
+        Debug.Log($"Card Border: {BorderId}");
+        Debug.Log($"Card Art: {ArtId}");
+        Debug.Log($"Card Mana: {ManaId}");
     }
+
 }
 
 // Enum for card types
 public enum CardType
 {
+    Unknown,
     Criatura,
     Hechizo,
     Encantamiento,

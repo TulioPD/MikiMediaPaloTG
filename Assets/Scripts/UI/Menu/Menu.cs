@@ -20,14 +20,6 @@ public class Menu : MonoBehaviour
     //instance
     public static Menu Instance { get; private set; }
 
-    //constructor that receives menutype
-    //public Menu(MenuType menuType)
-    //{
-    //    this.MenuType = menuType;
-
-    //}
-
-
     //constructor that receives menutype and canvas
     public Menu(MenuType menuType, Canvas UI)
     {
