@@ -1,7 +1,9 @@
+using System;
 using System.IO;
 
 using UnityEngine;
 
+[Serializable]
 public class PlayerSettings
 {
     public int PlayerID { get; set; } = 69;
@@ -19,6 +21,7 @@ public class PlayerSettings
         {
             CreatePlayerSettings();
         }
+        
     }
 
     private static bool CheckForFilePath()

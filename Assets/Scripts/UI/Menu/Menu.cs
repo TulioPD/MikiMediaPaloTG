@@ -1,6 +1,8 @@
 using System.Data;
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 public enum MenuType
 {
     MainMenu,
@@ -84,10 +86,12 @@ public class Menu : MonoBehaviour
     }
     public virtual void ChangeScene(string sceneName)
     {
+        SceneManager.LoadScene(sceneName);
 
     }
     public virtual void QuitGame()
     {
+        Application.Quit();
 
     }
     public virtual void SetMainCanvasPrefab()
@@ -99,5 +103,3 @@ public class Menu : MonoBehaviour
 
     }
 }
-
-   

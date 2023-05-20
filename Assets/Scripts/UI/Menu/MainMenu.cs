@@ -8,14 +8,7 @@ using UnityEngine.UI;
 
 public class MainMenu : Menu
 {
-    private ButtonPanel buttonPanel;
-
     public MainMenu(MenuType menuType, Canvas mainCanvas) : base(menuType, mainCanvas)
-    {
-        CreateMenu();
-    }
-
-    private void Awake()
     {
         CreateMenu();
     }
@@ -31,14 +24,10 @@ public class MainMenu : Menu
         // Nothing to do here
     }
 
-    public override void ChangeScene(string sceneName)
-    {
-        SceneManager.LoadScene(sceneName);
-    }
-
     public override void QuitGame()
     {
-        Application.Quit();
+        Debug.Log("QuitGame");
+        //base.QuitGame();
     }
 
     public override void SetMainCanvasPrefab()
@@ -49,5 +38,32 @@ public class MainMenu : Menu
     public override void SwapSubMenu()
     {
         // Implement sub-menu swapping logic here
+        Debug.Log("SwapSubMenu");
+    }
+
+    public void Play()
+    {
+        base.ChangeScene("Game");
+        Debug.Log("A new Game has started");
+    }
+
+    public void EditPlayer()
+    {
+        Debug.Log("EditPlayer");
+    }
+
+    public void EditDeck()
+    {
+        Debug.Log("EditDeck");
+    }
+
+    public void EditSettings()
+    {
+        Debug.Log("EditSettings");
+    }
+
+    public void CardEditor()
+    {
+        Debug.Log("CardEditor");
     }
 }
