@@ -1,0 +1,12 @@
+{
+  "cardId": 0,
+  "cardName": "Default Card",
+  "cost": 0,
+  "power": 0,
+  "toughness": 0,
+  "cardDescription": "Default Card Description",
+  "cardType": 0,
+  "borderSpritePath": "DefaultBorderSprite",
+  "artSpritePath": "DefaultArtSprite",
+  "manaSpritePath": "DefaultManaSprite"
+}

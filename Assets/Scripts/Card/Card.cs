@@ -1,101 +1,77 @@
+using System;
+using System.IO;
+
 using UnityEngine;
 
-[System.Serializable]
-public class Card
-{
-    // Properties
-    public int Id { get; private set; }
-    public string CardName { get; private set; }
-    public int Cost { get; private set; }
-    public int Power { get; private set; }
-    public int Toughness { get; private set; }
-    public string CardDescription { get; private set; }
-    public CardType CardType { get; private set; }
-    public string BorderId { get; private set; }
-    public string ArtId { get; private set; }
-    public string ManaId { get; private set; }
-
-
-    // Constructor
-    public Card(CardData cardData, CardMetadata cardMetadata)
-    {
-        // ...
-
-        CardType = cardMetadata?.CardType ?? CardType.Unknown;
-        BorderId = cardMetadata?.BorderId ?? string.Empty;
-        ArtId = cardMetadata?.ArtId ?? string.Empty;
-        ManaId = cardMetadata?.ManaId ?? string.Empty;
-    }
-
-
-
-    //Class constructor
-    public Card(int id, string cardName, int cost, int power, int toughness, string cardDescription, CardType cardType, string borderId, string artId, string manaId)
-    {
-        Id = id;
-        CardName = cardName;
-        Cost = cost;
-        Power = power;
-        Toughness = toughness;
-        CardDescription = cardDescription;
-        CardType = cardType;
-        BorderId = borderId;
-        ArtId = artId;
-        ManaId = manaId;
-    }
-
-    public void UpdateCardMetadata(CardMetadata cardMetadata)
-    {
-        CardType = cardMetadata.CardType;
-        BorderId = cardMetadata.BorderId;
-        ArtId = cardMetadata.ArtId;
-        ManaId = cardMetadata.ManaId;
-    }
-
-
-    // Show card information 
-    public void ShowCardInfo()
-    {
-        Debug.Log($"Card Name: {CardName}");
-        Debug.Log($"Card Cost: {Cost}");
-        Debug.Log($"Card Power: {Power}");
-        Debug.Log($"Card Toughness: {Toughness}");
-        Debug.Log($"Card Description: {CardDescription}");
-        Debug.Log($"Card Type: {CardType}");
-        Debug.Log($"Card Border: {BorderId}");
-        Debug.Log($"Card Art: {ArtId}");
-        Debug.Log($"Card Mana: {ManaId}");
-    }
-
-}
-
-// Enum for card types
 public enum CardType
 {
-    Unknown,
-    Criatura,
-    Hechizo,
-    Encantamiento,
-    Artefacto,
-    Tierra
+    Creature,
+    Spell,
+    Enchantment,
+    Artifact
 }
 
-// Class to hold card data that can be changed during a match
-public class CardData
+[CreateAssetMenu(fileName = "New Card", menuName = "Card")]
+[Serializable]
+public class Card : ScriptableObject
 {
-    public int Id;
-    public string CardName;
-    public int Cost;
-    public int Power;
-    public int Toughness;
-    public string CardDescription;
-}
+    // Properties
+    public int cardId;
+    public string cardName;
+    public int cost;
+    public int power;
+    public int toughness;
+    public string cardDescription;
+    public CardType cardType;
+    public string borderSpritePath;
+    public string artSpritePath;
+    public string manaSpritePath;
 
-// Class to hold card metadata needed for UI construction
-public class CardMetadata
-{
-    public CardType CardType;
-    public string BorderId;
-    public string ArtId;
-    public string ManaId;
+    // Default file paths for loading and saving
+    private static readonly string DefaultFolderPath = "Cards";
+    private static readonly string FileExtension = ".json";
+
+    public string GetDefaultFilePath()
+    {
+        string fileName = string.Format("Card_{0}", cardId);
+        return Path.Combine(DefaultFolderPath, fileName + FileExtension);
+    }
+
+    // Load sprites using the stored paths
+    public Sprite LoadBorderSprite()
+    {
+        return Resources.Load<Sprite>(GetSpritePath("Borders", borderSpritePath));
+    }
+
+    public Sprite LoadArtSprite()
+    {
+        return Resources.Load<Sprite>(GetSpritePath("CardArt", artSpritePath));
+    }
+
+    public Sprite LoadManaSprite()
+    {
+        return Resources.Load<Sprite>(GetSpritePath("Mana", manaSpritePath));
+    }
+
+    private string GetSpritePath(string folderName, string spritePath)
+    {
+        string path = string.Format("Sprites/{0}/{1}", folderName, spritePath);
+        return path;
+    }
+
+    //Debug method
+
+    public void PrintCard()
+    {
+        Debug.Log("Card ID: " + cardId);
+        Debug.Log("Card Name: " + cardName);
+        Debug.Log("Card Cost: " + cost);
+        Debug.Log("Card Power: " + power);
+        Debug.Log("Card Toughness: " + toughness);
+        Debug.Log("Card Description: " + cardDescription);
+        Debug.Log("Card Type: " + cardType);
+        Debug.Log("Card Border Sprite Path: " + borderSpritePath);
+        Debug.Log("Card Art Sprite Path: " + artSpritePath);
+        Debug.Log("Card Mana Sprite Path: " + manaSpritePath);
+    }
 }

@@ -43,7 +43,7 @@ public class Player : MonoBehaviour
         Debug.Log("Player " + Name + " cards:");
         foreach (Card card in this.PlayerDeck.Cards)
         {
-            Debug.Log(card.CardName);
+            Debug.Log(card.cardName);
         }
     }
 

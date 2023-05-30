@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public static PlayerSettings Settings { get; private set; }
     public static Game Game { get; private set; }
     public static TurnManager TurnManager { get; private set; }
-
+    
     private void Start()
     {
         Debug.Log("Game Manager Initialized correctly");

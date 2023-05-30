@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1455790044170414123}
   - component: {fileID: 3133807990819161142}
   - component: {fileID: 2559171775636940736}
-  - component: {fileID: 4167840740701983050}
+  - component: {fileID: 3411988515760639829}
   m_Layer: 5
   m_Name: Card Lorem Ipsum
   m_TagString: Untagged
@@ -86,7 +86,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4167840740701983050
+--- !u!114 &3411988515760639829
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -98,11 +98,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 634e9a4bb2b1db2449b476285261c521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedCardIndex: 0
   availableCards: []
-  borderImage: {fileID: 0}
-  cardImage: {fileID: 0}
-  manaImage: {fileID: 0}
+  selectedCardIndex: 0
+  borderImage: {fileID: 2559171775636940736}
+  cardImage: {fileID: 947717575833185871}
+  manaImage: {fileID: 2241829275610251474}
   nameText: {fileID: 5266995410528018847}
   typeText: {fileID: 3522750063719376565}
   powerText: {fileID: 2569467664825579368}
